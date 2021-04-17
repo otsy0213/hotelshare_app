@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HotelshareApp</title>
+    <title>みんなの宿共有</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+        <%= link_to "みんなの宿共有", inns_index_path , class: "header-logo" %>
+        <%= link_to "会員登録", new_user_path %>
+        <%= link_to "ユーザ一覧", users_index_path %>
+        <%= link_to "ログイン", login_path %>
+    </header>
     <%= yield %>
+    <footer>
+      @railsによる宿共有アプリ
+    </footer>
   </body>
 </html>

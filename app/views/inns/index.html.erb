@@ -1,0 +1,12 @@
+<%= flash.notice %>
+<img src="/assets/airport-2373727_1920.jpg" class="opening-image">
+<table>
+    <% @inns.each do |inn| %>
+        <tr><td><%= inn.image %></td></tr>
+        <tr><td><%= inn.name %></td></tr>
+        <tr><td><%= inn.introduction %></td></tr>
+        <tr><td><%= inn.price %></td></tr>
+        <tr><td><%= inn.location %></td></tr>
+    <% end %>
+</table>
+<%= link_to "登録する", new_inn_path %>
