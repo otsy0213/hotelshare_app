@@ -1,12 +1,15 @@
-<%= flash.notice %>
-<img src="/assets/airport-2373727_1920.jpg" class="opening-image">
-<table>
-    <% @inns.each do |inn| %>
-        <tr><td><%= inn.image %></td></tr>
-        <tr><td><%= inn.name %></td></tr>
-        <tr><td><%= inn.introduction %></td></tr>
-        <tr><td><%= inn.price %></td></tr>
-        <tr><td><%= inn.location %></td></tr>
-    <% end %>
-</table>
-<%= link_to "登録する", new_inn_path %>
+<h3>登録リスト</h3>
+<% @inns.each do |inn| %>
+    <table class="inns-box">
+        <tr><td>投稿者：<%= @user.name %></td></tr>
+        <tr><td>イメージ：<%= image_tag inn.image.to_s, width:200 %></td></tr>
+        <tr><td>紹介：<%= inn.introduction %></td></tr>
+        <tr><td>価格：<%= inn.price %>円</td></tr>
+        <tr><td>所在地：<%= inn.location %></td></tr>
+        <tr><td><%= link_to "みる", inn_path(inn.id) %></td></tr>
+    </table>
+<% end %>
+
+<% if @current_user %>
+    <%= link_to "宿登録する", new_inn_path %>
+<% end %>

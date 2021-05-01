@@ -35,8 +35,13 @@ header {
 }
 
 .header-logo {
-    font-size: 50px;
+    font-size: 40px;
     color: white;
+    font-weight: bold;
+}
+
+.search_form {
+    display: inline;
 }
 
 .opening-image {
@@ -54,4 +59,19 @@ footer {
     font-size: 10px;
     text-align: center;
     padding-top: 50px;
+}
+
+li {
+    list-style: none;
+}
+
+h3 {
+    border-bottom: dotted 3px red;
+}
+
+.inns-box {
+    border: solid 3px gray ;
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
 }

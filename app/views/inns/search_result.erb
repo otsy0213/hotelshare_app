@@ -1,0 +1,11 @@
+<%= link_to 'inn_path' do %>
+    <% @search_products.each do |search| %>
+        <table class="inns-box">
+            <tr><td>投稿者：<%= search.name %></td></tr>
+            <tr><td>イメージ：<%= image_tag search.image.to_s, width: 200 %></td></tr>
+            <tr><td>紹介：<%= search.introduction %></td></tr>
+            <tr><td>価格：<%= search.price %>円</td></tr>
+            <tr><td>所在地：<%= search.location %></td></tr>
+        </table>
+     <% end %>
+<% end %>

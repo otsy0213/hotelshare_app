@@ -27,8 +27,13 @@
     </tr>
     
     <tr>
-      <th><%= f.label :password_digest ,"パスワード" %></th>
-      <td><%= f.password_field :password_digest, placeholder: "パスワード"%></td>
+      <th><%= f.label :password, "パスワード" %></th>
+      <td><%= f.password_field :password, placeholder: "パスワード"%></td>
+    </tr>
+    
+    <tr>
+      <th><%= f.label :password_confirmation, "パスワード確認用" %></th>
+      <td><%= f.password_field :password_confirmation, placeholder: "同じパスワードを入力"%></td>
     </tr>
 
     <tr>

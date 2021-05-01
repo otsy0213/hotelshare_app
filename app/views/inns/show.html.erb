@@ -1,0 +1,13 @@
+<h3>宿詳細</h3>
+    <table class="inns-box">
+        <tr><td>投稿者：<%= @user.name %></td></tr>
+        <tr><td>イメージ：<%= image_tag @inn.image.url, width: 200 %></td></tr>
+        <tr><td>紹介：<%= @inn.introduction %></td></tr>
+        <tr><td>価格：<%= @inn.price %>円</td></tr>
+        <tr><td>所在地：<%= @inn.location %></td></tr>
+        <tr><td>
+            <% if @current_user %>
+                <%= link_to "予約", inns_reservation_path %>
+            <% end %>
+        </tr></td>
+    </table>
