@@ -10,7 +10,6 @@ class InnsController < ApplicationController
   
   def create
     @inn = Inn.new(params.require(:inn).permit(:image, :name, :introduction, :price, :location, :user_id))
-    @user = @inn.user
     @inn.user_id = @current_user.id
       if @inn.save
         flash[:notice] = "登録しました。"
@@ -23,7 +22,7 @@ class InnsController < ApplicationController
   
   def show
     @inn = Inn.find(params[:id])
-    @user = @inn.users
+    @user = @inn.user
   end
   
   def edit
@@ -50,10 +49,7 @@ class InnsController < ApplicationController
   
   def search_result
     @search = Inn.ransack(params[:q])
-    @search_products = @search.result
-  end
-  
-  def reservation
+    @inns = @search.result
   end
   
 end

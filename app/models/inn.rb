@@ -1,6 +1,6 @@
 class Inn < ApplicationRecord
     has_many :reservations
-    has_many :users, through: :reservations
+    belongs_to :user
     
     
     mount_uploader :image, ImageUploader
