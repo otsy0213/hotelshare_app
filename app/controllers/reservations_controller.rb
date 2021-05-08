@@ -5,10 +5,10 @@ class ReservationsController < ApplicationController
     
     def new
         @reservation = Reservation.new
+        @inn = Inn.find(params[:inn_id])
     end
     
     def create
-        @inn = @reservation.inn
         @reservation = Reservation.new(params.require(:reservation).permit(:user_id, :inn_id, :people, :start_date, :end_date, :total_price))
           if @reservation.save
             flash[:notice] = "予約しました。"
@@ -27,4 +27,5 @@ class ReservationsController < ApplicationController
     
     def destroy
     end
+    
 end

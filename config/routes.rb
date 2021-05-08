@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'inns/result' => 'inns#search_result'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
-  resources :inns
+  resources :inns do
+     resources :reservations
+   end
   resources :users
   resources :reservations
 end

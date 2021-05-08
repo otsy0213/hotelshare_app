@@ -1,8 +1,8 @@
 <h3>予約画面</h3>
-<h2>¥<%= @reservation.inn.price %>/日</h2>
+<h2>¥<%= @inn.price %>/日</h2>
 <%= form_with(model: @reservation) do |form| %>
   <li><%= form.hidden_field :user_id, value: @current_user.id %></li>
-  <li><%= form.hidden_field :inn_id, value: @reservation.inn.id %></li>
+  <li><%= form.hidden_field :inn_id, value: @inn.id %></li>
   <li>チェックイン日：<%= form.date_field :start_date %></li>
   <li>チェックアウト日：<%= form.date_field :end_date %></li>
   <li>人数：<%= form.number_field :people %></li>

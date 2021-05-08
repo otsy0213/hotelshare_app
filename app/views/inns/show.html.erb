@@ -14,7 +14,7 @@
         <tr><td>所在地：<%= @inn.location %></td></tr>
         <tr><td>
             <% if @current_user %>
-                <%= link_to "予約", new_reservation_path %>
+                <%= link_to "予約", new_inn_reservation_path(@inn.id) %>
             <% end %>
         </tr></td>
     </table>
