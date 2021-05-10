@@ -1,6 +1,7 @@
 <h3>登録リスト</h3>
 <% @inns.each do |inn| %>
     <table class="inns-box">
+        <tr><td>id：<%= inn.id %></td></tr>
         <tr><td>投稿者：<%= inn.user.name %></td></tr>
         <tr><td>
             イメージ：

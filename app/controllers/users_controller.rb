@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @inn = @user.inns
+    @reservation = @user.reservations
   end
   
   def edit

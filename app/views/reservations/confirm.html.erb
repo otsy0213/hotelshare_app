@@ -1,0 +1,17 @@
+<h3>確認画面</h3>
+下記の内容でよろしければ『この内容で予約』をクリックしてください。
+<h2>¥<%= @reservation.inn.price %>/日</h2>
+<li>チェックイン日：<%= @reservation.start_date %></li>
+<li>チェックアウト日：<%= @reservation.end_date %></li>
+<li>人数：<%= @reservation.people %>人</li>
+<li>合計金額：<%= @reservation.total_price %>円</li>
+
+<%= form_with(model: @reservation) do |form| %>
+  <li><%= form.hidden_field :user_id, value: @current_user.id %></li>
+  <li><%= form.hidden_field :inn_id, value: @reservation.inn.id %></li>
+  <li><%= form.hidden_field :start_date, value: @reservation.start_date %></li>
+  <li><%= form.hidden_field :end_date, value: @reservation.end_date %></li>
+  <li><%= form.hidden_field :people, value: @reservation.people %></li>
+  <li><%= form.hidden_field :total_price, value: @reservation.total_price %></li>
+  <li><%= form.submit 'この内容で予約' %>
+<% end %>

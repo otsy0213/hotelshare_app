@@ -17,7 +17,7 @@
         <%= link_to "宿共有サイト", inns_index_path , class: "header-logo" %>
         <!--検索機能　参考URL　https://qiita.com/fukuda_fu/items/58e3b5d9a776d98a62de-->
         <%= search_form_for @search, url: inns_result_path, class: "search_form" do |f| %>
-          <%= f.search_field :location_or_introduction_cont, placeholder: '検索ワード...' %>
+          <%= f.search_field :location_or_introduction_cont, placeholder: '検索...' %>
           <%= f.submit ("検索") %>
         <% end %>
         

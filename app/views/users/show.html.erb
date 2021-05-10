@@ -31,8 +31,38 @@
       <td><%= @user.introduction %></td>
     </tr>
   </table>
-  <h3>予約一覧</h3>
   
-  <div>
-      <%= link_to "プロフィール編集", edit_user_path %>
-  </div>
+  <h3>登録宿一覧</h3>
+  <% @inn.each do |inn| %>
+    <table class="inns-box">
+        <tr><td>id：<%= inn.id %></td></tr>
+        <tr><td>投稿者：<%= inn.user.name %></td></tr>
+        <tr><td>
+            イメージ：
+            <% if inn.image? %>
+                <%= image_tag inn.image.to_s, width: 200 %>
+            <% else %>
+                <%= image_tag "/inn_images/default_inn.jpg", width: 200 %>
+            <% end %>
+        </td></tr>
+        <tr><td>紹介：<%= inn.introduction %></td></tr>
+        <tr><td>価格：<%= inn.price %>円</td></tr>
+        <tr><td>所在地：<%= inn.location %></td></tr>
+        <tr><td><%= link_to "みる", inn_path(inn.id) %></td></tr>
+    </table>
+  <% end %>
+  
+  <h3>予約一覧</h3>
+  <% @reservation.each do |reservation| %>
+    <div>
+      予約id:<%= reservation.id %>
+      宿id:<%= reservation.inn.id %>
+      チェックイン日：<%= reservation.start_date %>
+      チェックアウト日：<%= reservation.end_date %>
+      人数：<%= reservation.people %>人
+      合計金額：<%= reservation.total_price %>円
+    </div>
+  <% end %>
+    <div>
+        <%= link_to "プロフィール編集", edit_user_path %>
+    </div>
