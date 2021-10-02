@@ -1,0 +1,26 @@
+<h3>登録画面</h3>
+<%= form_for @inn do |f| %>
+  <table>
+  　<tr>
+      <th><%= f.label :image ,"イメージ画像" %></th>
+      <td><%= f.file_field :image %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :introduction ,"宿紹介" %></th>
+      <td><%= f.text_area :introduction %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :price ,"価格" %></th>
+      <td><%= f.text_field :price %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :location ,"所在地" %></th>
+      <td><%= f.text_field :location %></td>
+    </tr>
+  </table>
+  <div>
+    <ul>
+      <li><%= f.submit "登録完了する" %></li>
+    </ul>
+  </div>
+<% end %>

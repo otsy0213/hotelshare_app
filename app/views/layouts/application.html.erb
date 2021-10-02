@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HotelshareApp</title>
+    <title>宿共有サイト</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+        <%= link_to "宿共有サイト", inns_index_path , class: "header-logo" %>
+        <!--検索機能　参考URL　https://qiita.com/fukuda_fu/items/58e3b5d9a776d98a62de-->
+        <%= search_form_for @search, url: inns_result_path, class: "search_form" do |f| %>
+          <%= f.search_field :location_or_introduction_cont, placeholder: '検索...' %>
+          <%= f.submit ("検索") %>
+        <% end %>
+        
+        <% if @current_user %>
+          <%= link_to "#{@current_user.name}", "/users/#{@current_user.id}" %>
+          <%= link_to "ユーザ一覧", users_index_path %>
+          <%= link_to "ログアウト", logout_path, method: :delete %>
+        <% else %>
+          <%= link_to "会員登録", new_user_path %>
+          <%= link_to "ログイン", login_path %>
+        <% end %>
+        
+    </header>
+        <%= flash[:notice] %>
+        <%= yield %>
+    <footer>
+      @railsによる宿共有アプリ
+    </footer>
   </body>
 </html>

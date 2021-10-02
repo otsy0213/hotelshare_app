@@ -1,0 +1,14 @@
+<h3>ユーザーログイン</h3>
+<%= form_with scope: :session, url: login_path do |form| %> 
+  <ul>
+    <li>
+      <%= form.text_field :mail, placeholder: "Mail_address"%>
+    </li>
+    <li>
+      <%= form.password_field :password, placeholder: "Password"%>
+    </li>
+    <li>
+      <%= form.submit "ログインする"%>
+    </li>
+  </ul>
+<% end %>
